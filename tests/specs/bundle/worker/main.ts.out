@@ -1,0 +1,5 @@
+Main: creating worker
+Worker: bundling module
+Worker: bundle succeeded: true
+Worker: output files: [WILDCARD]
+Main: received message: done
