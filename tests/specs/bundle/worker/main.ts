@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-console
 if (typeof WorkerGlobalScope === "undefined") {
   console.log("Main: creating worker");
   const worker = new Worker(import.meta.url, { type: "module" });
@@ -17,14 +18,14 @@ if (typeof WorkerGlobalScope === "undefined") {
   console.log("Worker: bundling module");
   await Deno.writeTextFile(
     "./test_module.ts",
-    'export function hello() { return "Hello from module"; }'
+    'export function hello() { return "Hello from module"; }',
   );
-  
+
   const result = await Deno.bundle({
     entrypoints: ["./test_module.ts"],
     write: false,
   });
-  
+
   console.log("Worker: bundle succeeded:", result.success);
   console.log("Worker: output files:", result.outputFiles?.length);
   postMessage("done");
