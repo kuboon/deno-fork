@@ -4,7 +4,7 @@
     "bundle_in_worker": {
       "steps": [
         {
-          "args": "run -A --quiet main.ts",
+          "args": "run -A --quiet --unstable-bundle main.ts",
           "output": "main.ts.out"
         }
       ]
